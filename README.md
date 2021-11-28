@@ -37,4 +37,6 @@ Any other value, including an empty one, will run both parts in sequence.
 Puzzles
 -------
 
-TBA
+### Day 1 (Python)
+
+Internal Cygni test run. Will be replaced by the actual AoC puzzle on December 1.
