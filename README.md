@@ -40,3 +40,7 @@ Puzzles
 ### Test run (Python)
 
 Internal Cygni test run.
+
+### Day 1 (JavaScript)
+
+Simple index-based `for` loops. I have a feeling there will be quite a few of those...
