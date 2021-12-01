@@ -14,7 +14,7 @@ Examples
 --------
 
 There are examples for JavaScript, Python and C#, which include variations on the same basic setup with no external dependencies.
-The idea is to reuse (by copying) as much of the code as possible between solutions, only modifying functions in the puzzle file (and adding more files when necessary).
+The idea is to reuse (by copying, due to the day-by-day Docker setup) as much of the code as possible between solutions, only modifying functions in the puzzle file (and adding more files when necessary).
 
 The following environment variables are recognized:
 
@@ -37,6 +37,6 @@ Any other value, including an empty one, will run both parts in sequence.
 Puzzles
 -------
 
-### Day 1 (Python)
+### Test run (Python)
 
-Internal Cygni test run. Will be replaced by the actual AoC puzzle on December 1.
+Internal Cygni test run.
