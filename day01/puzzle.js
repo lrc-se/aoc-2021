@@ -22,8 +22,7 @@ function runPart1(input) {
 function runPart2(input) {
   let result = 0;
   for (let i = 1, len = input.length - 2; i < len; ++i) {
-    const common = input[i] + input[i + 1];
-    if (common + input[i + 2] > input[i - 1] + common) {
+    if (input[i + 2] > input[i - 1]) {
       ++result;
     }
   }
