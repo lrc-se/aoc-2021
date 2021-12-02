@@ -44,3 +44,7 @@ Internal Cygni test run.
 ### Day 1 (JavaScript)
 
 Simple index-based `for` loops. I have a feeling there will be quite a few of those...
+
+### Day 2 (Python)
+
+Pattern matching FTW! (Requires Python 3.10)
