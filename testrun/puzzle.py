@@ -7,7 +7,7 @@ TEST_ANSWERS = {
 }
 
 
-def is_prime(number):
+def is_prime(number: int):
     if number == 2 or number == 3:
         return True
     elif number < 2 or number % 2 == 0 or number % 3 == 0:
@@ -23,12 +23,12 @@ def is_prime(number):
     return True
 
 
-class Puzzle(AocPuzzle):
+class Puzzle(AocPuzzle[int, int]):
     def __init__(self):
         super().__init__(TEST_ANSWERS)
 
 
-    def parse_input(self, lines):
+    def parse_input(self, lines: list[str]):
         return [int(line) for line in lines]
 
 

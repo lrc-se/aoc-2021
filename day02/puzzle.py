@@ -8,17 +8,17 @@ TEST_ANSWERS = {
 
 
 class Command:
-    def __init__(self, cmd):
+    def __init__(self, cmd: str):
         self.direction, units = cmd.split(" ")
         self.units = int(units)
 
 
-class Puzzle(AocPuzzle):
+class Puzzle(AocPuzzle[Command, int]):
     def __init__(self):
         super().__init__(TEST_ANSWERS)
 
 
-    def parse_input(self, lines):
+    def parse_input(self, lines: list[str]):
         return [Command(line) for line in lines]
 
 
@@ -56,6 +56,6 @@ class Puzzle(AocPuzzle):
         return horizontal * depth
 
 
-    def print_position(self, horizontal, depth):
-        print(f"Horizontal: {horizontal}")
-        print(f"Depth: {depth}")
+    def print_position(self, horizontal: int, depth: int):
+        print("Horizontal:", horizontal)
+        print("Depth:", depth)
