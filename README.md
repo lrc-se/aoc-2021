@@ -51,4 +51,4 @@ Pattern matching FTW! (Requires Python 3.10)
 
 ### Day 3 (JavaScript)
 
-Keeping the numbers as binary strings right up until the end, where a JS trick is employed for the decimal conversion.
+Keeping the numbers as binary strings right up until the end, taking advantage of JS type coercion all the way.
