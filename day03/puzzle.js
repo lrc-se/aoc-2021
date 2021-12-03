@@ -10,12 +10,12 @@ function parseInput(input) {
 }
 
 function getBitCounts(numbers) {
-  const length = numbers[0].length;
-  const ones = new Uint16Array(length).fill(0);
-  const zeroes = new Uint16Array(length).fill(0);
-  for (let i = 0; i < numbers.length; ++i) {
-    for (let j = 0; j < length; ++j) {
-      if (numbers[i][j] == "1") {
+  const width = numbers[0].length;
+  const ones = new Uint16Array(width);
+  const zeroes = new Uint16Array(width);
+  for (let i = 0, len = numbers.length; i < len; ++i) {
+    for (let j = 0; j < width; ++j) {
+      if (+numbers[i][j]) {
         ++ones[j];
       } else {
         ++zeroes[j];
@@ -28,8 +28,8 @@ function getBitCounts(numbers) {
 function getSingleBitCounts(numbers, position) {
   let ones = 0;
   let zeroes = 0;
-  for (let i = 0; i < numbers.length; ++i) {
-    if (numbers[i][position] == "1") {
+  for (let i = 0, len = numbers.length; i < len; ++i) {
+    if (+numbers[i][position]) {
       ++ones;
     } else {
       ++zeroes;
@@ -42,7 +42,7 @@ function runPart1(input) {
   const counts = getBitCounts(input);
   let gamma = "";
   let epsilon = "";
-  for (let i = 0; i < input[0].length; ++i) {
+  for (let i = 0, len = input[0].length; i < len; ++i) {
     if (counts.ones[i] > counts.zeroes[i]) {
       gamma += "1";
       epsilon += "0";
