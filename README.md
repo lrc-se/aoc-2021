@@ -48,3 +48,7 @@ Simple index-based `for` loops. I have a feeling there will be quite a few of th
 ### Day 2 (Python)
 
 Pattern matching FTW! (Requires Python 3.10)
+
+### Day 3 (JavaScript)
+
+Keeping the numbers as binary strings right up until the end, where a JS trick is employed for the decimal conversion.
