@@ -52,3 +52,9 @@ Pattern matching FTW! (Requires Python 3.10)
 ### Day 3 (JavaScript)
 
 Keeping the numbers as binary strings right up until the end, taking advantage of JS type coercion all the way.
+
+### Day 4 (C#)
+
+OK, starting to get a bit more complicated. Arrays, dictionaries and records to the rescue!
+
+This day also revealed a weakness in the base code since the input had two different parts. I should do something about that.
