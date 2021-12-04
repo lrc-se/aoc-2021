@@ -14,7 +14,9 @@ Examples
 --------
 
 There are examples for JavaScript, Python and C#, which include variations on the same basic setup with no external dependencies.
-The idea is to reuse (by copying, due to the day-by-day Docker setup) as much of the code as possible between solutions, only modifying functions in the puzzle file (and adding more files when necessary).
+The idea is to reuse as much of the code as possible between solutions, only modifying functions in the puzzle file (and adding more files when necessary).
+Due to the mandated use of Docker and its concept of build contexts, this reuse is limited to *copying* the common files to each new day,
+so the whole thing is better thought of as what the setup *could* look like if multiple days were solved with the same language without directory traversal constraints.
 
 The following environment variables are recognized:
 
@@ -57,4 +59,4 @@ Keeping the numbers as binary strings right up until the end, taking advantage o
 
 OK, starting to get a bit more complicated. Arrays, dictionaries and records to the rescue!
 
-This day also revealed a weakness in the base code since the input had two different parts. I should do something about that.
+This day also revealed a weakness in the base code since the input had two different parts, which has since been addressed.
