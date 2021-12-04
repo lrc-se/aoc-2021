@@ -15,7 +15,7 @@ namespace Aoc2021
             { "part2", 1924 }
         };
 
-        protected override IEnumerable<BingoData> ParseInput(IEnumerable<string> lines)
+        protected override BingoData ParseInput(IEnumerable<string> lines)
         {
             var parts = string.Join('\n', lines)
                 .Split("\n\n")
@@ -32,15 +32,14 @@ namespace Aoc2021
                                 .ToArray())
                         .ToArray()));
 
-            return new[] { new BingoData(numbers.ToArray(), boards.ToArray()) };
+            return new BingoData(numbers.ToArray(), boards.ToArray());
         }
 
         protected override int RunPart1()
         {
-            var boardData = _input[0];
-            foreach (int number in boardData.Numbers)
+            foreach (int number in _input.Numbers)
             {
-                foreach (var board in boardData.Boards)
+                foreach (var board in _input.Boards)
                 {
                     if (board.MarkNumber(number))
                     {
@@ -58,13 +57,12 @@ namespace Aoc2021
 
         protected override int RunPart2()
         {
-            var boardData = _input[0];
-            var boards = boardData.Boards;
+            var boards = _input.Boards;
             var winningBoards = new List<Board>();
             var currentWinningBoards = new List<Board>();
             int lastWinningNumber = -1;
 
-            foreach (int number in boardData.Numbers)
+            foreach (int number in _input.Numbers)
             {
                 foreach (var board in boards)
                 {

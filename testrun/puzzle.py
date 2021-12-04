@@ -23,7 +23,7 @@ def is_prime(number: int):
     return True
 
 
-class Puzzle(AocPuzzle[int, int]):
+class Puzzle(AocPuzzle[list[int], int]):
     def __init__(self):
         super().__init__(TEST_ANSWERS)
 

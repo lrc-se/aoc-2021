@@ -13,7 +13,7 @@ class Command:
         self.units = int(units)
 
 
-class Puzzle(AocPuzzle[Command, int]):
+class Puzzle(AocPuzzle[list[Command], int]):
     def __init__(self):
         super().__init__(TEST_ANSWERS)
 

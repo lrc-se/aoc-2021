@@ -8,12 +8,12 @@ TEST_ANSWERS = {
 }
 
 
-class Puzzle(AocPuzzle):
+class Puzzle(AocPuzzle[list[int], int]):
     def __init__(self):
         super().__init__(TEST_ANSWERS)
 
 
-    def parse_input(self, lines):
+    def parse_input(self, lines: list[str]):
         return [int(line) for line in lines]
 
 

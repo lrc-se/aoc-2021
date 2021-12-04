@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Aoc2021
 {
-    public class Puzzle : AocPuzzle<int, int>
+    public class Puzzle : AocPuzzle<int[], int>
     {
         protected override IDictionary<string, int> TestAnswers { get; } = new Dictionary<string, int>
         {
@@ -11,9 +11,9 @@ namespace Aoc2021
             { "part2", 56154 }
         };
 
-        protected override IEnumerable<int> ParseInput(IEnumerable<string> lines)
+        protected override int[] ParseInput(IEnumerable<string> lines)
         {
-            return lines.Select(line => int.Parse(line));
+            return lines.Select(line => int.Parse(line)).ToArray();
         }
 
         protected override int RunPart1()

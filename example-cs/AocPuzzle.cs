@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 
 namespace Aoc2021
 {
@@ -12,7 +11,7 @@ namespace Aoc2021
         private readonly bool _isTest;
         private readonly bool _isTimed;
 
-        protected readonly TInput[] _input;
+        protected readonly TInput _input;
 
         protected virtual IDictionary<string, TResult> TestAnswers { get; }
 
@@ -21,7 +20,7 @@ namespace Aoc2021
             _mode = Environment.GetEnvironmentVariable("mode");
             _isTest = (_mode == "test" || _mode == "test-timed");
             _isTimed = (_mode == "timed" || _mode == "test-timed");
-            _input = ParseInput(LoadInput()).ToArray();
+            _input = ParseInput(LoadInput());
         }
 
         public void Run(string part = null)
@@ -60,7 +59,7 @@ namespace Aoc2021
             }
         }
 
-        protected abstract IEnumerable<TInput> ParseInput(IEnumerable<string> lines);
+        protected abstract TInput ParseInput(IEnumerable<string> lines);
 
         protected virtual TResult RunPart1() => default;
 

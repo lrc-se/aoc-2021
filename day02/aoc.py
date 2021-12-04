@@ -33,7 +33,7 @@ class AocPuzzle(Generic[InputT, ResultT]):
         self._test_answers = test_answers
 
 
-    def parse_input(self, lines: list[str]) -> list[InputT]:
+    def parse_input(self, lines: list[str]) -> InputT:
         return lines
 
 
