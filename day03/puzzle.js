@@ -5,8 +5,8 @@ const testAnswers = {
   part2: 230
 };
 
-function parseInput(input) {
-  return input;
+function parseInput(lines) {
+  return lines;
 }
 
 function getBitCounts(numbers) {

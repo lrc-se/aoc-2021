@@ -5,8 +5,8 @@ const testAnswers = {
   part2: 5
 };
 
-function parseInput(input) {
-  return input.map(line => +line);
+function parseInput(lines) {
+  return lines.map(line => +line);
 }
 
 function runPart1(input) {
