@@ -8,9 +8,9 @@ namespace Aoc2021
     public abstract class AocPuzzle<TInput, TResult>
     {
         private readonly string _mode;
-        private readonly bool _isTest;
         private readonly bool _isTimed;
 
+        protected readonly bool _isTest;
         protected readonly TInput _input;
 
         protected virtual IDictionary<string, TResult> TestAnswers { get; }
@@ -20,7 +20,17 @@ namespace Aoc2021
             _mode = Environment.GetEnvironmentVariable("mode");
             _isTest = (_mode == "test" || _mode == "test-timed");
             _isTimed = (_mode == "timed" || _mode == "test-timed");
-            _input = ParseInput(LoadInput());
+            var lines = LoadInput();
+            if (_isTimed)
+            {
+                Console.WriteLine("Parsing input...");
+                _input = RunTimed(() => ParseInput(lines));
+                Console.WriteLine();
+            }
+            else
+            {
+                _input = ParseInput(lines);
+            }
         }
 
         public void Run(string part = null)
@@ -70,7 +80,7 @@ namespace Aoc2021
             return File.ReadLines(_isTest ? "input-test.txt" : "input.txt");
         }
 
-        private static TResult RunTimed(Func<TResult> func)
+        private static T RunTimed<T>(Func<T> func)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();

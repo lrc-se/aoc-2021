@@ -7,8 +7,6 @@ namespace Aoc2021
 {
     public class Puzzle : AocPuzzle<BingoData, int>
     {
-        private static readonly Regex _whitespacePattern = new(@"\s+", RegexOptions.Compiled);
-
         protected override IDictionary<string, int> TestAnswers { get; } = new Dictionary<string, int>
         {
             { "part1", 4512 },
@@ -17,22 +15,34 @@ namespace Aoc2021
 
         protected override BingoData ParseInput(IEnumerable<string> lines)
         {
-            var parts = string.Join('\n', lines)
-                .Split("\n\n")
-                .Select(line => line.Split('\n'))
-                .ToArray();
-            var numbers = parts[0][0].Split(',').Select(number => int.Parse(number));
-            var boards = parts
-                .Skip(1)
-                .Select(part => new Board(
-                    part
-                        .Select(row => 
-                            _whitespacePattern.Split(row.Trim())
-                                .Select(number => int.Parse(number))
-                                .ToArray())
-                        .ToArray()));
+            var parts = new List<List<string>>();
+            var part = new List<string>();
+            foreach (string line in lines)
+            {
+                if (line.Length > 0)
+                {
+                    part.Add(line);
+                    continue;
+                }
 
-            return new BingoData(numbers.ToArray(), boards.ToArray());
+                parts.Add(part);
+                part = new List<string>();
+            }
+            if (part.Count > 0)
+                parts.Add(part);
+
+            var numbers = parts[0][0].Split(',').Select(number => int.Parse(number)).ToArray();
+            int boardCount = parts.Count - 1;
+            var boards = new Board[boardCount];
+            for (int i = 0; i < boardCount; ++i)
+            {
+                boards[i] = new Board(
+                    parts[i + 1]
+                        .Select(row => Regex.Split(row.Trim(), @"\s+").Select(number => int.Parse(number)).ToArray())
+                        .ToArray());
+            }
+
+            return new BingoData(numbers, boards);
         }
 
         protected override int RunPart1()
