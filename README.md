@@ -58,6 +58,7 @@ Keeping the numbers as binary strings right up until the end, taking advantage o
 ### Day 4 (C#)
 
 OK, starting to get a bit more complicated. Arrays, dictionaries and records to the rescue!
+*__Update:__ Made some performance improvements to the input parsing, which was extremely slow in comparison to the actual solutions. It still is, and it's not very pretty, but at least it's noticeably faster than it used to be.*
 
 This day also revealed a weakness in the base code since the input had two different parts, which has since been addressed.
 
