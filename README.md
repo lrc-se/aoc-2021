@@ -63,4 +63,4 @@ This day also revealed a weakness in the base code since the input had two diffe
 
 ### Day 5 (JavaScript)
 
-More arrays, but this time flat. Also added some features to the (local) base code for better diagnostic capabilities during development.
+More arrays, but this time flat. Also added some features to the base code for better diagnostic capabilities during development.

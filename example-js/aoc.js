@@ -16,7 +16,15 @@ function loadInput() {
 }
 
 export function createAocPuzzle({ parseInput, runPart1, runPart2, testAnswers }) {
-  const input = parseInput(loadInput());
+  const lines = loadInput();
+  let input;
+  if (isTimed) {
+    console.log("Parsing input...");
+    input = runTimed(() => parseInput(lines));
+    console.log();
+  } else {
+    input = parseInput(lines);
+  }
 
   function runPuzzle(part = puzzlePart) {
     let result;
@@ -24,13 +32,13 @@ export function createAocPuzzle({ parseInput, runPart1, runPart2, testAnswers })
       case "part1": {
         console.log("PART 1");
         console.log("======");
-        result = (isTimed ? runTimed(() => runPart1(input)) : runPart1(input));
+        result = (isTimed ? runTimed(() => runPart1(input, isTest)) : runPart1(input, isTest));
         break;
       }
       case "part2": {
         console.log("PART 2");
         console.log("======");
-        result = (isTimed ? runTimed(() => runPart2(input)) : runPart2(input));
+        result = (isTimed ? runTimed(() => runPart2(input, isTest)) : runPart2(input, isTest));
         break;
       }
       default:

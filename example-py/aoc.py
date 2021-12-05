@@ -29,7 +29,15 @@ ResultT = TypeVar("ResultT")
 
 class AocPuzzle(Generic[InputT, ResultT]):
     def __init__(self, test_answers: dict[str, ResultT] = None):
-        self._input = self.parse_input(load_input())
+        lines = load_input()
+        if IS_TIMED:
+            print("Parsing input...")
+            self._input = run_timed(lambda: self.parse_input(lines))
+            print()
+        else:
+            self._input = self.parse_input(lines)
+
+        self._is_test = IS_TEST
         self._test_answers = test_answers
 
 
@@ -62,7 +70,7 @@ class AocPuzzle(Generic[InputT, ResultT]):
                 return
 
         print("Result:", result)
-        if IS_TEST:
+        if self._is_test:
             if not self._test_answers or part not in self._test_answers:
                 print("Test answer not provided!")
             elif result != self._test_answers[part]:
