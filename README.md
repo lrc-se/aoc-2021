@@ -60,3 +60,7 @@ Keeping the numbers as binary strings right up until the end, taking advantage o
 OK, starting to get a bit more complicated. Arrays, dictionaries and records to the rescue!
 
 This day also revealed a weakness in the base code since the input had two different parts, which has since been addressed.
+
+### Day 5 (JavaScript)
+
+More arrays, but this time flat. Also added some features to the (local) base code for better diagnostic capabilities during development.
