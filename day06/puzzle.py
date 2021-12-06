@@ -17,22 +17,16 @@ class Puzzle(AocPuzzle[list[int], int]):
 
 
     def simulate_fish(self, day_count: int) -> int:
-        timers = {k: 0 for k in range(7)}
-        new_timers = {k: 0 for k in range(8)}
-        for fish_timer in self._input:
-            timers[fish_timer] += 1
+        ages = [0 for _ in range(9)]
+        for age in self._input:
+            ages[age] += 1
 
-        for day in range(1, day_count):
-            for timer, count in new_timers.items():
-                if count > 0 and day % 8 == timer:
-                    timers[(day + 1) % 7] += count
-                    new_timers[timer] -= count
+        for _ in range(day_count):
+            created_count = ages.pop(0)
+            ages[6] += created_count
+            ages.append(created_count)
 
-            for timer, count in timers.items():
-                if count > 0 and day % 7 == timer:
-                    new_timers[(day + 8) % 8] += count
-
-        return sum(timers.values()) + sum(new_timers.values())
+        return sum(ages)
 
 
     def run_part1(self):
