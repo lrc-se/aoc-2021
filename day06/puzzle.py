@@ -21,10 +21,9 @@ class Puzzle(AocPuzzle[list[int], int]):
         for age in self._input:
             ages[age] += 1
 
-        for _ in range(day_count):
-            created_count = ages.pop(0)
-            ages[6] += created_count
-            ages.append(created_count)
+        for day in range(day_count):
+            index = day % 9
+            ages[index - 2] += ages[index]
 
         return sum(ages)
 

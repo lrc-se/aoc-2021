@@ -69,4 +69,4 @@ More arrays, but this time flat. Also added some features to the base code for b
 ### Day 6 (Python)
 
 First puzzle where a naive solution to part one will blow up in part two, so this one uses rotation periods instead and barely breaks a sweat.
-*__Update:__ Switched to a more direct age tracking approach instead, which boosted the performance quite nicely.*
+*__Update:__ Switched to a more direct age tracking approach instead, which boosted the performance quite nicely, especially after reintroducing modulo arithmetic and utilizing Python's negative indexing.*
