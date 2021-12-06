@@ -65,3 +65,7 @@ This day also revealed a weakness in the base code since the input had two diffe
 ### Day 5 (JavaScript)
 
 More arrays, but this time flat. Also added some features to the base code for better diagnostic capabilities during development.
+
+### Day 6 (Python)
+
+First puzzle where a naive solution to part one will blow up in part two, so this one uses rotation periods instead and barely breaks a sweat.
