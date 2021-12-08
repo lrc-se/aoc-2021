@@ -74,3 +74,7 @@ First puzzle where a naive solution to part one will blow up in part two, so thi
 ### Day 7 (JavaScript)
 
 Simple arithmetic today.
+
+### Day 8 (Python)
+
+For now uses a manual approach for part 2 based on known relationships between segment distributions for different digits, but this can surely be generalized and automated.
