@@ -21,41 +21,47 @@ function getPositionCounts(input) {
   return { counts: [...counts.entries()], max };
 }
 
-function runPart1(input) {
+function findBestPosition1(input) {
   const { counts, max } = getPositionCounts(input);
   let fuel = Number.MAX_SAFE_INTEGER;
-  let position = -1;
   for (let x = 0; x <= max; ++x) {
     let curFuel = 0;
     for (let i = 0; i < counts.length; ++i) {
       curFuel += Math.abs(x - counts[i][0]) * counts[i][1];
+      if (curFuel >= fuel) {
+        return { fuel, position: x - 1 };
+      }
     }
-    if (curFuel < fuel) {
-      fuel = curFuel;
-      position = x;
-    }
+    fuel = curFuel;
   }
+  return { fuel, position: -1 };
+}
 
+function runPart1(input) {
+  const { fuel, position } = findBestPosition1(input);
   console.log("Position:", position);
   return fuel;
 }
 
-function runPart2(input) {
+function findBestPosition2(input) {
   const { counts, max } = getPositionCounts(input);
   let fuel = Number.MAX_SAFE_INTEGER;
-  let position = -1;
   for (let x = 0; x <= max; ++x) {
     let curFuel = 0;
     for (let i = 0; i < counts.length; ++i) {
       const diff = Math.abs(x - counts[i][0]);
       curFuel += (diff * (diff + 1) >> 1) * counts[i][1];
+      if (curFuel >= fuel) {
+        return { fuel, position: x - 1 };
+      }
     }
-    if (curFuel < fuel) {
-      fuel = curFuel;
-      position = x;
-    }
+    fuel = curFuel;
   }
+  return { fuel, position: -1 };
+}
 
+function runPart2(input) {
+  const { fuel, position } = findBestPosition2(input);
   console.log("Position:", position);
   return fuel;
 }
