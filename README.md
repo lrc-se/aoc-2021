@@ -78,3 +78,7 @@ Simple arithmetic today.
 ### Day 8 (Python)
 
 For now uses a manual approach for part 2 based on known relationships between segment distributions for different digits, but this can surely be generalized and automated.
+
+### Day 9 (JavaScript)
+
+Uses recursion with a cache of already checked positions for part 2.
