@@ -13,7 +13,7 @@ namespace Aoc2021
             { "part2", 1924 }
         };
 
-        protected override BingoData ParseInput(IEnumerable<string> lines)
+        protected override BingoData ParseInput(string[] lines)
         {
             var parts = new List<List<string>>();
             var part = new List<string>();

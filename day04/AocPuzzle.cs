@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace Aoc2021
 {
@@ -69,15 +70,15 @@ namespace Aoc2021
             }
         }
 
-        protected abstract TInput ParseInput(IEnumerable<string> lines);
+        protected abstract TInput ParseInput(string[] lines);
 
         protected virtual TResult RunPart1() => default;
 
         protected virtual TResult RunPart2() => default;
 
-        private IEnumerable<string> LoadInput()
+        private string[] LoadInput()
         {
-            return File.ReadLines(_isTest ? "input-test.txt" : "input.txt");
+            return File.ReadLines(_isTest ? "input-test.txt" : "input.txt").ToArray();
         }
 
         private static T RunTimed<T>(Func<T> func)

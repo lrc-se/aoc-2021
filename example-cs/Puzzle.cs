@@ -11,7 +11,7 @@ namespace Aoc2021
             { "part2", 56154 }
         };
 
-        protected override int[] ParseInput(IEnumerable<string> lines)
+        protected override int[] ParseInput(string[] lines)
         {
             return lines.Select(line => int.Parse(line)).ToArray();
         }
