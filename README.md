@@ -86,3 +86,7 @@ Uses recursion with a cache of already checked positions for part 2.
 ### Day 10 (Python)
 
 Simple stack based solution.
+
+### Day 11 (JavaScript)
+
+Using a flat representation of the grid this time, and a queue for the flashing squids.
