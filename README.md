@@ -87,6 +87,7 @@ Uses recursion with a cache of already checked positions for part 2.
 
 Simple stack based solution.
 
-### Day 11 (JavaScript)
+### Day 11 (C#)
 
 Using a flat representation of the grid this time, and a queue for the flashing squids.
+*__Update:__ I've iterated back and forth between C# and JS takes on this one, but have (at least for now) landed on a C# version as the day's submission as it appears faster in its current form. The JS version is available in a parallel directory.*
