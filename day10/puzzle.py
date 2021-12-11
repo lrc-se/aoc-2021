@@ -42,10 +42,9 @@ class Puzzle(AocPuzzle[list[str], int]):
             for char in line.strip():
                 if char in CHAR_MAP:
                     stack.append(char)
-                else:
-                    if char != CHAR_MAP[stack.pop()]:
-                        illegal_chars.append(char)
-                        break
+                elif char != CHAR_MAP[stack.pop()]:
+                    illegal_chars.append(char)
+                    break
 
         return sum([ILLEGAL_CHAR_POINTS[char] for char in illegal_chars])
 
@@ -54,25 +53,13 @@ class Puzzle(AocPuzzle[list[str], int]):
         scores: list[int] = []
         for line in self._input:
             stack: list[str] = []
-            is_corrupted = False
             for char in line.strip():
                 if char in CHAR_MAP:
                     stack.append(char)
-                else:
-                    if char != CHAR_MAP[stack.pop()]:
-                        is_corrupted = True
-                        break
-
-            if is_corrupted:
-                continue
-
-            completion_chars: list[str] = []
-            while len(stack):
-                completion_chars.append(CHAR_MAP[stack.pop()])
-
-            if self._is_test:
-                print("".join(completion_chars))
-
-            scores.append(reduce(lambda score, char: score * 5 + COMPLETION_CHAR_POINTS[char], completion_chars, 0))
+                elif char != CHAR_MAP[stack.pop()]:
+                    break
+            else:
+                stack.reverse()
+                scores.append(reduce(lambda score, char: score * 5 + COMPLETION_CHAR_POINTS[CHAR_MAP[char]], stack, 0))
 
         return statistics.median(scores)
