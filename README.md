@@ -91,3 +91,7 @@ Simple stack based solution.
 
 Using a flat representation of the grid this time, and a queue for the flashing squids.
 *__Update:__ I've iterated back and forth between C# and JS takes on this one, but have (at least for now) landed on a C# version as the day's submission as it appears faster in its current form. The JS version is available in a parallel directory.*
+
+### Day 12 (JavaScript)
+
+Recursion to the rescue again. Part 2 performance isn't stellar right now, but it's not too bad either.
