@@ -95,3 +95,7 @@ Using a flat representation of the grid this time, and a queue for the flashing 
 ### Day 12 (JavaScript)
 
 Recursion to the rescue again. Part 2 performance isn't stellar right now, but it's not too bad either.
+
+### Day 13 (Python)
+
+List comprehensions galore.
