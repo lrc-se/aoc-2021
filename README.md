@@ -99,3 +99,4 @@ Recursion to the rescue again. Part 2 performance isn't stellar right now, but i
 ### Day 13 (Python)
 
 List comprehensions galore.
+*__Update:__ Switched to a set-based approach only manipulating the dots rather than the whole paper, which is drastically more efficient.*

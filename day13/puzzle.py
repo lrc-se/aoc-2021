@@ -1,7 +1,15 @@
+from dataclasses import dataclass
 from aoc import AocPuzzle
 
 
 TEST_ANSWERS = { "part1": 17 }
+
+
+@dataclass
+class Paper:
+    coordinates: dict[int, set[int]]
+    max_x: int
+    max_y: int
 
 
 class FoldInstruction:
@@ -13,36 +21,56 @@ class FoldInstruction:
 
 class PageOne:
     def __init__(self, dots: list[str], fold_instructions: list[str]):
-        coords: list[list[int]] = []
+        coordinates: dict[int, set[int]] = {}
         max_x = 0
         max_y = 0
         for dot in dots:
             coord = [int(coord) for coord in dot.split(",")]
-            coords.append(coord)
+            if coord[1] not in coordinates:
+                coordinates[coord[1]] = {coord[0]}
+            else:
+                coordinates[coord[1]].add(coord[0])
+
             if coord[0] > max_x:
                 max_x = coord[0]
 
             if coord[1] > max_y:
                 max_y = coord[1]
 
-        self.paper = [[False for _ in range(max_x + 1)] for _ in range(max_y + 1)]
-        for coord in coords:
-            self.paper[coord[1]][coord[0]] = True
-
+        self.paper = Paper(coordinates, max_x, max_y)
         self.fold_instructions = [FoldInstruction(instruction) for instruction in fold_instructions]
 
 
-def fold_paper(paper: list[list[bool]], instruction: FoldInstruction) -> list[list[bool]]:
+def fold_paper(paper: Paper, instruction: FoldInstruction) -> Paper:
+    new_coordinates: dict[int, set[int]] = {}
     match instruction.fold_along:
         case "x":
-            return [[row[x] | row[-x - 1] for x in range(instruction.line)] for row in paper]
+            for y, xs in paper.coordinates.items():
+                new_coordinates[y] = {paper.max_x - x if x > instruction.line else x for x in xs}
+
+            return Paper(new_coordinates, (paper.max_x - 1) // 2, paper.max_y)
         case "y":
-            return [[paper[y][x] | paper[-y - 1][x] for x in range(len(paper[0]))] for y in range(instruction.line)]
+            for y in sorted(paper.coordinates):
+                xs = paper.coordinates[y]
+                if y > instruction.line:
+                    new_y = paper.max_y - y
+                    if new_y in new_coordinates:
+                        new_coordinates[new_y].update(xs)
+                    else:
+                        new_coordinates[new_y] = paper.coordinates.get(new_y, xs).copy()
+                else:
+                    new_coordinates[y] = xs.copy()
+
+            return Paper(new_coordinates, paper.max_x, (paper.max_y - 1) // 2)
 
 
-def print_paper(paper: list[list[bool]]):
-    for row in paper:
-        print("".join(["#" if dot else "." for dot in row]))
+def print_paper(paper: Paper):
+    width = paper.max_x + 1
+    for y in range(paper.max_y + 1):
+        if y in paper.coordinates:
+            print("".join(["#" if x in paper.coordinates[y] else "." for x in range(width)]))
+        else:
+            print("." * width)
 
 
 class Puzzle(AocPuzzle[PageOne, int]):
@@ -65,7 +93,7 @@ class Puzzle(AocPuzzle[PageOne, int]):
         if self._is_test:
             print_paper(paper)
 
-        return sum([sum(row) for row in paper])
+        return sum([len(xs) for xs in paper.coordinates.values()])
 
 
     def run_part2(self):
