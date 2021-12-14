@@ -29,7 +29,7 @@ function getPairCounts({ rules, template }) {
 }
 
 function processPairs(pairCounts, rules) {
-  const prevPairCounts = { ...pairCounts };
+  const prevPairCounts = Object.assign({}, pairCounts);
   for (const pair in rules) {
     const insertedElement = rules[pair];
     const count = prevPairCounts[pair];
@@ -42,7 +42,7 @@ function processPairs(pairCounts, rules) {
 function countElements(pairCounts, firstElement) {
   const counts = { [firstElement]: 1 };
   for (const pair in pairCounts) {
-    if (pair[1] in counts) {
+    if (counts[pair[1]]) {
       counts[pair[1]] += pairCounts[pair];
     } else {
       counts[pair[1]] = pairCounts[pair];
