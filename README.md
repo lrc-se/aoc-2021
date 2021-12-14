@@ -100,3 +100,7 @@ Recursion to the rescue again. Part 2 performance isn't stellar right now, but i
 
 List comprehensions galore.
 *__Update:__ Switched to a set-based approach only manipulating the dots rather than the whole paper, which is drastically more efficient.*
+
+### Day 14 (JavaScript)
+
+First solved part 1 naively by actually constructing the polymer, but this of course quickly blew up in part 2, so switched to just counting pairs instead. Fun fun.
