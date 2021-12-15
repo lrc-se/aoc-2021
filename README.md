@@ -104,3 +104,7 @@ List comprehensions galore.
 ### Day 14 (JavaScript)
 
 First solved part 1 naively by actually constructing the polymer, but this of course quickly blew up in part 2, so switched to just counting pairs instead. Fun fun.
+
+### Day 15 (JavaScript)
+
+Solved using a general cost distance algorithm which is rather unpolished in its current state, but at least part 2 doesn't run for much longer than a second on my machine anyway.
