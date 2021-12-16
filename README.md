@@ -108,3 +108,7 @@ First solved part 1 naively by actually constructing the polymer, but this of co
 ### Day 15 (JavaScript)
 
 Solved using a general cost distance algorithm which is rather unpolished in its current state, but at least part 2 doesn't run for much longer than a second on my machine anyway.
+
+### Day 16 (JavaScript)
+
+Turned out to be pretty straightforward as long as the index in the bit stream was tracked properly, with some JS shortcuts. Had to make allowance for multiple test inputs as well, but I'm still limited to one test answer per part.
