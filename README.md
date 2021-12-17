@@ -111,4 +111,9 @@ Solved using a general cost distance algorithm which is rather unpolished in its
 
 ### Day 16 (JavaScript)
 
-Turned out to be pretty straightforward as long as the index in the bit stream was tracked properly, with some JS shortcuts. Had to make allowance for multiple test inputs as well, but I'm still limited to one test answer per part.
+Turned out to be pretty straightforward as long as the index in the bit stream was tracked properly, with some JS shortcuts.
+Had to make allowance for multiple test inputs as well, but I'm still limited to one test answer per part.
+
+### Day 17 (Python)
+
+Saves some time by only considering the part of the flight path below the zero line, but it's not very pretty and there's huge room for improvements.
