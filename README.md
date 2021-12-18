@@ -117,3 +117,7 @@ Had to make allowance for multiple test inputs as well, but I'm still limited to
 ### Day 17 (Python)
 
 Saves some time by only considering the part of the flight path below the zero line, but it's not very pretty and there's huge room for improvements.
+
+### Day 18 (JavaScript)
+
+Could take some shortcuts here due to JavaScript's dynamic typing. Reduction is performed in-place but each addition parses a new pair from its combined string representation, which turned out to be faster and also preserves the original input data.
