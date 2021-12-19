@@ -121,3 +121,7 @@ Saves some time by only considering the part of the flight path below the zero l
 ### Day 18 (JavaScript)
 
 Could take some shortcuts here due to JavaScript's dynamic typing. Reduction is performed in-place but each addition parses a new pair from its combined string representation, which turned out to be faster and also preserves the original input data.
+
+### Day 19 (C#)
+
+Wow, this was a tough one. C#'s value types came in handy here, but there's huge potential for optimization; local execution times are just below 12 seconds per part at the moment, which isn't great...
