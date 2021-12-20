@@ -125,3 +125,8 @@ Could take some shortcuts here due to JavaScript's dynamic typing. Reduction is 
 ### Day 19 (C#)
 
 Wow, this was a tough one. C#'s value types came in handy here, but there's huge potential for optimization; local execution times are just below 12 seconds per part at the moment, which isn't great...
+
+### Day 20 (JavaScript)
+
+Expanding the image just enough to accommodate any new pixels in every turn, with a shortcut for handling the odd-step infinite inversion.
+Binary values are computed explicitly, which makes for longer but much faster code.
