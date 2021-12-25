@@ -130,3 +130,7 @@ Wow, this was a tough one. C#'s value types came in handy here, but there's huge
 
 Expanding the image just enough to accommodate any new pixels in every turn, with a shortcut for handling the odd-step infinite inversion.
 Binary values are computed explicitly, which makes for longer but much faster code.
+
+### Day 25 (C#)
+
+Keeping track of east and south sea cucumber locations separately, which makes for more efficient moves. Now if only the antenna was stronger...
